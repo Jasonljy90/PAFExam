@@ -38,7 +38,6 @@ public class FundsTransferController {
 
         // If both are true, continue with checks
         if (resultFrom && resultTo == false) {
-            // TODO: fix on showform
             // Print error message
             System.out.println("Both account to and from should exists");
             return "index";
@@ -49,7 +48,6 @@ public class FundsTransferController {
         Integer length2 = accounts.getTo().length();
 
         if (length1 != 10 || length2 != 10) {
-            // TODO: fix on showform
             // Print error message
             System.out.println("Account id should be 10 characters");
             return "index";
@@ -57,7 +55,6 @@ public class FundsTransferController {
 
         // Check C2
         if (accounts.getFrom() == accounts.getTo()) {
-            // TODO: fix on showform
             // Print error message
             System.out.println("Account id should not be the same");
             return "index";
@@ -65,7 +62,6 @@ public class FundsTransferController {
 
         // Check C3
         if (accounts.getAmount() <= 0) {
-            // TODO: fix on showform
             // Print error message
             System.out.println("Amount cannot be 0 or negative");
             return "index";
@@ -73,7 +69,6 @@ public class FundsTransferController {
 
         // Check C4
         if (accounts.getAmount() <= 0) {
-            // TODO: fix on showform
             // Print error message
             System.out.println("Amount to transfer cannot be less than $10");
             return "index";
@@ -87,7 +82,6 @@ public class FundsTransferController {
         Double balance = balanceOpt.get();
 
         if (accounts.getAmount() > balance) {
-            // TODO: fix on showform
             // Print error message
             System.out.println("Insufficient funds in account");
             return "index";
