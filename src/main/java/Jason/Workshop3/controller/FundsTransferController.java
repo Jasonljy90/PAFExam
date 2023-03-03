@@ -37,7 +37,7 @@ public class FundsTransferController {
         Boolean resultTo = fundsTransferSvc.findAccountExistsSvc(accounts.getTo());
 
         // If both are true, continue with checks
-        if (resultFrom && resultTo == false) {
+        if (resultFrom == false && resultTo == false) {
             // Print error message
             System.out.println("Both account to and from should exists");
             return "index";
