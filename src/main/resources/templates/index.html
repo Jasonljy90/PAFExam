@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Codebun</title>
+  </head>
+  <body style="background-color: #f0f4c3">
+    <form th:action="@{/transfer}" th:object="${accounts}" method="post">
+      <table align="center">
+        <tr>
+          <td>From Account:</td>
+          <td>
+            <select name="from">
+              <option th:each="fromAcc : ${accountInfo}" th:text="${fromAcc}" />
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>To Account:</td>
+          <td>
+            <select name="to">
+              <option th:each="toAcc : ${accountInfo}" th:text="${toAcc}" />
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Amount:</td>
+          <td>
+            <input type="text" th-field="*{amount}" />
+            <br />
+            <span
+              class="error"
+              th-if="${#fields.hasErrors('amount')}"
+              th-errors="*{amount}"
+            ></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Comments:</td>
+          <td>
+            <input type="text" th-field="*{comments}" />
+            <br />
+            <span
+              class="error"
+              th-if="${#fields.hasErrors('comments')}"
+              th-errors="*{comments}"
+            ></span>
+          </td>
+        </tr>
+        <br />
+        <tr>
+          <td><button type="submit">Transfer</button></td>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
